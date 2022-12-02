@@ -204,3 +204,94 @@ while(userName_3 == ""){
 console.log("Hello", userName_3);
 
 */
+
+// ------------------------------------------------------------------------------------------------- //
+
+// function = Define code once, and use it many times.
+// To perform some code, call the function name.
+
+function happyBirthday(){
+    console.log("Happy birthday to you !");
+}
+
+function factorial(number){
+    if (number == 0 || number == 1){
+        return 1;
+    }
+    return number * factorial(number - 1)
+}
+
+console.log(factorial(5));
+
+// ------------------------------------------------------------------------------------------------- //
+
+// variavle scope = where a variable is accessible
+
+// let = variables are limited to block scope {}
+// var = variables are limited to a function(){}
+// global variable = is declared outside any function
+
+// ------------------------------------------------------------------------------------------------- //
+
+// array - think of it as a variable that can store multiple values.
+
+let fruits = ["apple", "orange", "banana"];
+
+fruits.push("lemon");
+fruits.pop();
+
+fruits = fruits.sort()
+
+for(let fruit of fruits){
+    console.log(fruit);
+}
+
+// ------------------------------------------------------------------------------------------------- //
+
+// spread operator = allows an iterable such as an array or string to be expanded in places
+// where zero or more arguments are expected (unpacks the elements).
+// ... upacks the elements
+
+let userName_4 = "maksym";
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+console.log(...userName_4);
+console.log(...numbers);
+console.log(Math.max(...numbers));
+
+// ------------------------------------------------------------------------------------------------- //
+
+// rest parameters = represents an indefinite number of parameters (packs arguments into an array).
+
+let a = 1;
+let b = 10;
+let c = 100;
+
+function sum(...numbers){
+    let total = 0;
+    for(let number of numbers){
+        total += number;
+    }
+    return total;
+}
+
+console.log(sum(a, b, c));
+
+// ------------------------------------------------------------------------------------------------- //
+
+// array.forEach() = executes a provided callback function once for each array element.
+
+let students_1 = ["student1", "student2", "student3"];
+students_1.forEach(capitalize);
+students_1.forEach(print);
+
+function capitalize(element, index, array){
+    array[index] = element[0].toUpperCase() + element.substring(1);
+}
+
+function print(element){
+    console.log(element);
+}
+
+// ------------------------------------------------------------------------------------------------- //
+
