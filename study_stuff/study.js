@@ -295,3 +295,165 @@ function print(element){
 
 // ------------------------------------------------------------------------------------------------- //
 
+let grades = [100, 50, 90, 60, 80, 70];
+
+grades = grades.sort(descendingSort)
+
+grades.forEach(print);
+
+function descendingSort(x, y){
+    return y - x;
+}
+
+// ------------------------------------------------------------------------------------------------- //
+
+// function expression = function without a name (anonymous function) avoid
+// polluting the global scope with names. Write it, then forget about it.
+
+const greeting = function(){
+    console.log("Hello");
+}
+
+greeting();
+
+// ------------------------------------------------------------------------------------------------- //
+
+// arrow function = compact alternative to a traditional function expression ( => )
+
+const greeting_1 = (userName) => console.log(`Hello ${userName}`);
+
+greeting_1("Maks");
+
+// ------------------------------------------------------------------------------------------------- //
+
+let cards = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+
+shuffle(cards);
+
+console.log(cards);
+
+function shuffle(array){
+    let currentIndex = array.length;
+
+    while(currentIndex != 0){
+        let randomIndex = Math.floor(Math.random() * array.length);
+        currentIndex -= 1;
+        let temp = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temp;
+    }
+
+    return array;
+}
+
+// ------------------------------------------------------------------------------------------------- //
+
+// object = A group of properties and methods | properties = what an object has
+// | methods = what an object can do use . to access properties / methods.
+
+const car = {
+
+    model: "Mustang",
+    color: "red",
+    year: 2023,
+
+    drive : function(){
+        console.log("You drive the car");
+    },
+
+    brake : function(){
+        console.log("You step on the brakes");
+    },
+
+}
+
+console.log(car.model, car.color, car.year);
+
+// ------------------------------------------------------------------------------------------------- //
+
+// class - a blueprint for creating objects define what properties and methods they have
+// use a constructor for unique properties.
+
+class Player{
+    score = 0;
+
+    pause(){
+        console.log("You paused the game");
+    }
+
+    exit(){
+        console.log("You exited the game");
+    }
+}
+
+const player1 = new Player();
+
+player1.score += 1;
+
+console.log(player1.score);
+
+player1.pause();
+
+// ------------------------------------------------------------------------------------------------- //
+
+// constructor = a special method of a class, accepts arguments and assigns properties.
+
+class Student{
+
+    constructor(name, age, gpa){
+        this.name = name;
+        this.age = age;
+        this.gpa = gpa;
+    }
+
+    study(){
+        console.log(`${this.name} is studying`);
+    }
+}
+
+const studentTech = new Student("Maks", 20, 5);
+
+console.log(studentTech.name, studentTech.age, studentTech.gpa);
+studentTech.study();
+
+// ------------------------------------------------------------------------------------------------- //
+
+// inheritance = a child class can inherit all the methods and properties from another class.
+
+// ------------------------------------------------------------------------------------------------- //
+
+// super = refers to the parent class.
+// Commonly used to invoke constructor of a parent class.
+
+// ------------------------------------------------------------------------------------------------- //
+
+// array of objects :
+
+class Car{
+
+    constructor(model, year, color){
+        this.model = model;
+        this.year = year;
+        this.color = color;
+    }
+
+    drive(){
+        console.log(`You drive the ${this.model} car.`);
+    }
+}
+
+function startRace(cars){
+    for(const car of cars){
+        car.drive();
+    }
+}
+
+const car1 = new Car("Mustang", 2022, "red");
+const car2 = new Car("Corvette", 2023, "blue");
+const car3 = new Car("Lambo", 2024, "yellow");
+
+const cars = [car1, car2, car3];
+
+startRace(cars);
+
+// ------------------------------------------------------------------------------------------------- //
